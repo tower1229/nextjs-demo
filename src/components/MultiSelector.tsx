@@ -14,7 +14,7 @@ export default function MultiSelector(props: {
   }, [props.checkedIds]);
 
   return (
-    <div className="flex bg-bg2 px-2 gap-2 items-center">
+    <div className="rounded-sm flex bg-bg2 px-2 gap-2 items-center">
       <ClearOutlined className="text-xl text-color2" />
       <Input
         value={number}

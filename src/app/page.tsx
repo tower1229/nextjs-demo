@@ -17,7 +17,7 @@ export default function Home() {
   const [dataList, setDataList] = useState<NFTInfo[]>([]);
   const [keywords, setKeywords] = useState<string>("");
   const { open, close } = useWeb3Modal();
-  const { address, isDisconnected } = useAccount();
+  const { address } = useAccount();
   const { disconnect } = useDisconnect();
   const [checkedIds, setCheckedIds] = useState<string[]>([]);
 
@@ -71,11 +71,11 @@ export default function Home() {
             dataList.length ? "(" + dataList.length + ")" : ""
           }`}</div>
           <Button type="primary">Claim Received</Button>
-          {isDisconnected ? (
+          {!address ? (
             <Button onClick={() => open()}>Connext Wallet</Button>
           ) : (
             <Button type="primary" title={address} onClick={() => disconnect()}>
-              {address ? shortenAddress(address) : "Connecting"}
+              {shortenAddress(address)}
             </Button>
           )}
         </div>

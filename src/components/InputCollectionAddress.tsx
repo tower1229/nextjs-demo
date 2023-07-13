@@ -2,11 +2,13 @@
 import { Input } from "antd";
 const { Search } = Input;
 import { useState } from "react";
+import { useAccount, useDisconnect } from "wagmi";
 
 export default function InputCollectionAddress(props: {
   className?: string;
   handleList?: (data: any[]) => any;
 }) {
+  const { address } = useAccount();
   const [keywords, setKeywords] = useState<string>(
     "0x8d04a8c79ceb0889bdd12acdf3fa9d207ed3ff63"
   );
@@ -17,15 +19,15 @@ export default function InputCollectionAddress(props: {
       return;
     }
     setLoading(true);
+    const fetchUrl = address
+      ? `https://api.reservoir.tools/users/${address}/tokens/v7?collection=${keywords}`
+      : `https://api.reservoir.tools/tokens/v6?collection=${keywords}`;
     const options = {
       method: "GET",
       headers: { accept: "*/*", "x-api-key": "demo-api-key" },
     };
 
-    const list = await fetch(
-      `https://api.reservoir.tools/tokens/v6?collection=${keywords}`,
-      options
-    )
+    const list = await fetch(fetchUrl, options)
       .then((response) => response.json())
       .then((response) => response.tokens || [])
       .catch((err) => console.error(err));

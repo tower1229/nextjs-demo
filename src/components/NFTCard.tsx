@@ -8,7 +8,7 @@ const getContent = (item: NFTInfo) => {
     "bg-bg2 text-color2 text-xs rounded-xs px-2 py-1 truncate";
 
   return (
-    <div className="flex ">
+    <div className="rounded-sm flex overflow-hidden">
       <Image
         className="rounded-lg mr-5"
         src={item.token.imageLarge}
@@ -73,7 +73,7 @@ export default function NFTCard({
   onChangeCheck?: (value: boolean) => any;
 }) {
   return (
-    <div className="bg-bg2">
+    <div className="rounded-sm bg-bg2 overflow-hidden">
       <div className="bg-bg3 aspect-square relative">
         <Image
           src={item.token.imageSmall}
