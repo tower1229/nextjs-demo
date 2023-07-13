@@ -80,6 +80,9 @@ export default function NFTTableList({
       rowSelection={rowSelection}
       dataSource={dataList}
       columns={columns}
+      scroll={{
+        x: 640,
+      }}
     />
   );
 }

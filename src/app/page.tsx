@@ -61,7 +61,7 @@ export default function Home() {
   );
 
   return (
-    <main className=" min-h-screen p-24 ">
+    <main className=" min-h-screen lg:p-24 ">
       <InputCollectionAddress className="mb-4" handleList={setDataList} />
 
       <div className="bg-[#191A1F] p-10 text-color1">
@@ -80,11 +80,15 @@ export default function Home() {
           )}
         </div>
         {/* toobar */}
-        <div className="flex mb-8 gap-5">
+        <div className="mb-8 gap-5 justify-between lg:flex">
           <MultiSelector checkedIds={checkedIds} onChange={batchSelect} />
-          <div className="flex-1"></div>
-          <SearchId onChange={(keywords) => handleKeywordsFilter(keywords)} />
-          <SwitchListType type={listType} onChange={setlistType} />
+          <div className="flex mt-4  gap-5 lg:mt-0 lg:justify-end">
+            <SearchId
+              onChange={(keywords) => handleKeywordsFilter(keywords)}
+              className="flex-1 lg:max-w-45"
+            />
+            <SwitchListType type={listType} onChange={setlistType} />
+          </div>
         </div>
         {/* list */}
         {!filteredList.length ? (

@@ -8,7 +8,7 @@ const getContent = (item: NFTInfo) => {
     "bg-bg2 text-color2 text-xs rounded-xs px-2 py-1 truncate";
 
   return (
-    <div className="rounded-sm flex overflow-hidden">
+    <div className="rounded-sm overflow-hidden lg:flex">
       <Image
         className="rounded-lg mr-5"
         src={item.token.imageLarge}
@@ -16,7 +16,7 @@ const getContent = (item: NFTInfo) => {
         width={230}
         height={230}
       />
-      <div className="w-96">
+      <div className="max-w-max w-96">
         <div className="text-xs mb-2 text-color2 leading-6">
           Current price
           <div className="text-base text-color1">

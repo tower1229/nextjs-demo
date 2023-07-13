@@ -39,7 +39,7 @@ export default function MultiSelector(props: {
         value={number}
         min={0}
         max={30}
-        className="w-32"
+        className="w-40"
         onChange={(value) => {
           setNumber(value);
           props.onChange?.(value);
